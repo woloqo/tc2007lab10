@@ -55,6 +55,7 @@ fun PublicarScreen(
     onCancelar: () -> Unit,
     onGaleria: () -> Unit,
     onQuitarImagen: () -> Unit,
+    onCamara: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     val espaciado = AvisosTema.espaciado
@@ -117,6 +118,11 @@ fun PublicarScreen(
                     Icon(painterResource(R.drawable.ic_galeria), contentDescription = null, modifier = Modifier.size(18.dp))
                     Spacer(Modifier.width(espaciado.sm))
                     Text("Galería")
+                }
+                OutlinedButton(onClick = onCamara, enabled = !uiState.enviando) {
+                    Icon(painterResource(R.drawable.ic_camara), contentDescription = null, modifier = Modifier.size(18.dp))
+                    Spacer(Modifier.width(espaciado.sm))
+                    Text("Cámara")
                 }
                 if (uiState.imagen != null) {
                     TextButton(onClick = onQuitarImagen, enabled = !uiState.enviando) { Text("Quitar") }
