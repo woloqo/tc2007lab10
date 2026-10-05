@@ -146,7 +146,9 @@ fun PublicarScreen(
                 cuerpo = uiState.cuerpo.ifBlank { "Así se va a ver tu aviso en el tablón." },
                 autor = autor,
                 cuando = "ahora",
-                nuevo = true
+                nuevo = true,
+                // La foto local, antes de subirla: la misma tarjeta, con una Uri en vez de una URL.
+                imagen = uiState.imagen
             )
         }
     }
