@@ -16,7 +16,7 @@ val local = Properties().apply {
     val archivo = rootProject.file("local.properties")
     if (archivo.exists()) archivo.inputStream().use { load(it) }
 }
-val apiUrl: String = local.getProperty("avisos.api") ?: "http://10.0.2.2:8000/api/"
+val apiUrl: String = local.getProperty("avisos.api") ?: "https://shipping-hartford-outcome-autumn.trycloudflare.com/api/"
 
 android {
     namespace = "mx.tec.avisos"
@@ -74,6 +74,10 @@ dependencies {
     implementation(libs.androidx.hilt.lifecycle.viewmodel.compose)
     implementation(libs.androidx.hilt.work)
     ksp(libs.androidx.hilt.compiler)
+
+    // Imágenes: Coil las baja y las pinta, con el mismo cliente que todo lo demás
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
 
     debugImplementation(libs.androidx.ui.tooling)
 }
